@@ -31,6 +31,13 @@ export const eventType = defineType({
               : true;
           }),
     },
+    {
+      name: 'live',
+      title: 'Event Live',
+      type: 'boolean',
+      initialValue: false,
+      description: 'Shows the competition bracket on the homepage'
+    },
     { name: 'year', title: 'Year', type: 'number', validation: rule => rule.required() },
     { name: 'name', title: 'Name', type: 'string', validation: rule => rule.required() },
     { name: 'date', title: 'Date', type: 'string', validation: rule => rule.required() },
