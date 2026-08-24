@@ -54,6 +54,76 @@ export const eventType = defineType({
         ]
     },
     {
+        name: 'divisions',
+        title: 'Divisions',
+        type: 'array',
+        of: [
+            {
+            name: 'division',
+            type: 'object',
+            fields: [
+                {
+                name: 'name',
+                title: 'Division Name',
+                type: 'string',
+                validation: Rule => Rule.required(),
+                },
+
+                {
+                name: 'prizes',
+                title: 'Prizes',
+                type: 'array',
+                of: [
+                    {
+                    name: 'prize',
+                    type: 'object',
+                    fields: [
+                        {
+                        name: 'place',
+                        title: 'Place',
+                        type: 'number',
+                        validation: Rule => Rule.required(),
+                        },
+                        {
+                        name: 'amount',
+                        title: 'Prize',
+                        type: 'string',
+                        },
+                    ],
+                    },
+                ],
+                },
+
+                {
+                name: 'winners',
+                title: 'Winners',
+                type: 'array',
+                of: [
+                    {
+                    name: 'winner',
+                    type: 'object',
+                    fields: [
+                        {
+                        name: 'place',
+                        title: 'Place',
+                        type: 'number',
+                        validation: Rule => Rule.required(),
+                        },
+                        {
+                        name: 'team',
+                        title: 'Team',
+                        type: 'string',
+                        validation: Rule => Rule.required(),
+                        },
+                    ],
+                    },
+                ],
+                },
+            ],
+            },
+        ],
+    },
+    {
       name: 'prizes',
       title: 'Prizes',
       type: 'object',
