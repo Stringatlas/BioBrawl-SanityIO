@@ -167,6 +167,43 @@ export const eventType = defineType({
         { name: 'date', title: 'Mock Date', type: 'string' }
       ]
     },
+    {
+      name: 'schedule',
+      title: 'Schedule',
+      type: 'array',
+      description: 'Dated items shown on the home page, in this order (drag to reorder). Type the time zone in "When". When empty, the site shows Date, Time, Rules Workshop, Mock and Registration Closes instead.',
+      of: [
+        {
+          name: 'scheduleItem',
+          type: 'object',
+          fields: [
+            {
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+              description: 'e.g. "Buzzer Challenge"',
+              validation: Rule => Rule.required(),
+            },
+            {
+              name: 'when',
+              title: 'When',
+              type: 'string',
+              description: 'Free text including the time zone, e.g. "Jan 16, 2027, 8 AM–5 PM PT"',
+              validation: Rule => Rule.required(),
+            },
+            {
+              name: 'note',
+              title: 'Note',
+              type: 'string',
+              description: 'Optional short note, e.g. "optional" or "registered teams only"',
+            },
+          ],
+          preview: {
+            select: {title: 'label', subtitle: 'when'},
+          },
+        },
+      ],
+    },
     { name: 'contact', title: 'Contact', type: 'string' },
     {
       name: 'results',
